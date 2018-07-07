@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All Models
+{% endblock %}
+
+{% block main %}
+
+<table id="tablesort">
+ <tr class="models">
+   <th onclick="sortTable(0)" class="sort-by">Model Name</th>
+   <th onclick="sortTable(1)" class="sort-by">Risk Profile</th>
+      <th onclick="sortTable(2)" class="sort-by">Allocation</th>
+ </tr>
+ {% for model in object_list %}
+ <tr class="models">
+   <td class="models"><a href="{% url 'core:ModelDetail' pk=model.id %}">
+     {{ model }}
+   </a>
+   </td>
+   <td class="models">{{ model.get_risk_display }}
+   </td>
+   <td class="models">{{ model.allocation }}
+   </td>
+ </tr>
+ {% endfor %}
+</table>
+
+{% endblock %}

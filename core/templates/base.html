@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<script type="text/javascript" src="{% static "jquery-3.3.1.min.js" %}"></script>
+<script type="text/javascript" src="{% static "tablesort.js" %}"></script>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta
+   name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  >
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+  integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+  rel="stylesheet"
+  crossorigin="anonymous"
+  >
+  <title>
+   {% block title %}Portfol.io{% endblock %}
+  </title>
+  <style>
+   .portfolio-masthead {
+    background-color: #EEEEEE;
+    margin-bottom: 1em;
+   }
+  </style>
+
+ </head>
+ <body>
+ <div class="portfolio-masthead">
+  <div class="container">
+   <nav class"nav">
+    <div class="navbar-brand">Portfol.io</div>
+    <a
+     class="nav-link"
+     href="{% url 'core:ModelList' %}"
+    >
+    Models
+   </a>
+  </nav>
+ </div>
+</div>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-8 portfolio-main">
+   {% block main %}{% endblock %}
+  </div>
+  <div class="col-sm-3 offset-sm-1 portfolio-sidebar">
+   {% block sidebar %}{% endblock %}
+  </div>
+ </div>
+</div>
+</body>
+</html>

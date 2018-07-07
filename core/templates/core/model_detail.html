@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ {{ object.title }} - {{ block.super }}
+{% endblock %}
+
+{% block main %}
+<h1>{{ object }}</h1>
+<p class="lead">
+{{ object.description }}
+</p>
+{% endblock %}
+
+{% block sidebar %}
+<div>
+This model's risk profile is:
+ <span class="badge badge-primary">
+ {{ object.get_risk_display }}
+</span>
+</div>
+{% endblock %}
