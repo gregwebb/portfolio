@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load tickerdata %}
+
+{% block title %}
+All Tickers
+{% endblock %}
+
+{% block main %}
+
+<table id="tablesort">
+ <tr class="models">
+   <th onclick="sortTable(0)" class="sort-by">Ticker/CUSIP</th>
+   <th onclick="sortTable(1)" class="sort-by">Description</th>
+      <th onclick="sortTable(2)" class="sort-by">Current Price</th>
+      <th class="">Sparkline (One Year)</th>
+ </tr>
+ {% for ticker in object_list %}
+ <tr class="models">
+   <td class="models"><a href="{% url 'core:TickerDetail' pk=ticker.id %}">
+     {{ ticker.ticker }}
+   </a>
+   </td>
+   <td class="models">{{ ticker.ticker_description}}
+   </td>
+   <td class="models">
+  {{ ticker|price }}
+
+   </td>
+   <td class="models">
+
+  {{ ticker|plot }}
+  <a href="https://finance.yahoo.com/quote/{{ticker.ticker}}"><img src="/static/tickerimages/{{ticker.ticker}}.svg" alt "/></a>
+
+ </td>
+
+ </tr>
+ {% endfor %}
+</table>
+
+{% endblock %}

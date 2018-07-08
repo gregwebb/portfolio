@@ -9,3 +9,11 @@ class ModelDetail(DetailView):
 
 class ModelList(ListView):
     model = Model
+
+from core.models import Ticker
+
+class TickerList(ListView):
+    model = Ticker
+
+class TickerDetail(DetailView):
+    model = Ticker

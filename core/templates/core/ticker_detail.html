@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load tickerdata %}
+
+{% block title %}
+  {{ ticker.ticker }}
+  {{ ticker.ticker_description }}
+{% endblock %}
+
+{% block main %}
+<h1>{{ object.ticker_description }}</h1>
+<p class="lead">
+{{ object.ticker }}
+</p>
+{{ object|plot_detail }}
+<a href="https://finance.yahoo.com/quote/{{ticker.ticker}}"><img src="/static/tickerimages/{{ticker.ticker}}_detailed.svg" alt width=500 "/></a>
+{% endblock %}
+
+{% block sidebar %}
+<div>
+{{ object.ticker_description }}
+({{ object.ticker }}) is in the following models:
+ <span class="badge badge-primary">
+
+</span>
+
+</div>
+{% endblock %}

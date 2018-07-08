@@ -14,13 +14,23 @@ class Model(models.Model):
         (AGGRESSIVE, 'Aggresive'),
     )
 
-    title = models.CharField(
-        max_length=140)
+    title = models.CharField(max_length=100)
     description = models.TextField()
-    risk = models.IntegerField(
-        choices=RISK_PROFILE,
-        default=NONE)
+    risk = models.IntegerField(choices=RISK_PROFILE,default=NONE)
 
     def __str__(self):
-        return '{}'.format(
-            self.title)
+        return '{}'.format(self.title)
+
+class Ticker(models.Model):
+    ticker = models.CharField(max_length=20)
+    ticker_description = models.TextField()
+    asset_class = models.CharField(max_length=20)
+
+
+    class Meta:
+        ordering = ('ticker','ticker_description')
+
+class Holding(models.Model):
+    ticker = models.ForeignKey(Ticker, on_delete=models.DO_NOTHING)
+    shares = models.DecimalField(max_digits=100, decimal_places=4)
+    model = models.ForeignKey(Model, on_delete=models.DO_NOTHING)

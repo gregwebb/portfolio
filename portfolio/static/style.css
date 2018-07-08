@@ -1,65 +1,39 @@
+.navbar-default {
+  background-color: #000000;
+ margin-bottom: 1em;
+}
+
+a.nav_link {
+  font-size: 10px;
+}
+
+
 #tablesort{
   width:100%;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .models{
   text-align: center;
   border: 1px solid black;
 }
-#modeltable{
 
-}
-
-*  {
+* {
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-body {
-	color: #333;
-	font-size: 1em;
-}
-a:link,
-a:visited,
-a:hover,
-a:active {
-	color: #000;
-	text-decoration: none;
-}
-.container {
-  margin: 50px auto;
-  padding: 0 50px;
-  max-width: 960px;
-}
-table {
-	background: #FFF;
-	border-collapse: collapse;
-	width: 100%;
-}
-td,
-th {
-	padding: 4px;
-	border: 1px solid #CCC;
-	overflow: hidden;
-	text-align: left;
-	vertical-align: middle;
-}
-th {
-	background-color: #DDD;
-	font-weight: 400;
-}
-th a,
-td a {
-	display: block;
-	width: 100%;
-}
-th a.sort-by {
+
+.sort-by {
 	padding-right: 18px;
 	position: relative;
+  text-align: center;
+  border: 1px solid black;
 }
-a.sort-by:before,
-a.sort-by:after {
+.sort-by:before,
+.sort-by:after {
 	border: 4px solid transparent;
 	content: "";
 	display: block;
@@ -69,11 +43,11 @@ a.sort-by:after {
 	position: absolute;
 	width: 0;
 }
-a.sort-by:before {
+.sort-by:before {
 	border-bottom-color: #666;
 	margin-top: -9px;
 }
-a.sort-by:after {
+.sort-by:after {
 	border-top-color: #666;
 	margin-top: 1px;
 }

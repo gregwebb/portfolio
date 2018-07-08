@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'user',
     'core',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,6 +53,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'portfolio.urls'
 
+LOGIN_REDIRECT_URL = 'core:ModelList'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -66,6 +69,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+            'tickerdata': 'templatetags.tickerdata',
+            }
         },
     },
 ]

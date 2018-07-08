@@ -10,4 +10,10 @@ urlpatterns = [
     path('model/<int:pk>',
         views.ModelDetail.as_view(),
         name='ModelDetail'),
+    path('tickers',
+        views.TickerList.as_view(),
+        name='TickerList'),
+    path('ticker/<int:pk>',
+        views.TickerDetail.as_view(),
+        name='TickerDetail'),
 ]
