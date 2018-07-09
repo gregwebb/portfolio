@@ -1,0 +1,10 @@
+
+/.bundle
+
+# Ignore the database migrations.
+/user/migrations/*
+/core/migrations/*
+
+
+/static/tickerimages/*
+/static/.DS_Store
