@@ -2,19 +2,12 @@ from django import template
 
 register = template.Library()
 
+import os
+import matplotlib.pyplot as plt
+from datetime import datetime
+from pathlib import Path
 from iexfinance import Stock
 from iexfinance import get_historical_data
-from datetime import datetime
-import django
-from django.http import HttpResponse
-import io
-import os
-import matplotlib
-import pylab
-from matplotlib.backends.backend_agg import FigureCanvasAgg
-import matplotlib.pyplot as plt
-from pathlib import Path
-import numpy as np
 
 @register.filter
 def price(ticker):
@@ -26,7 +19,6 @@ def price(ticker):
     else:
         return price
 
-
 @register.filter
 def plot(ticker):
     end = datetime.now()
@@ -37,7 +29,6 @@ def plot(ticker):
     except:
         Path(results_dir  + ticker.ticker + '.png' ).touch()
         return "---"
-        pass
     else:
         data = df["close"].tolist()
         fig = plt.figure(figsize=( .9,.35))
@@ -61,7 +52,6 @@ def plot_detail(ticker):
     except:
         Path(results_dir  + ticker.ticker + '.png' ).touch()
         return "---"
-        pass
     else:
         plt.plot(df["close"], linewidth=1, color="blue")
         plt.axis('auto')
@@ -69,4 +59,3 @@ def plot_detail(ticker):
         plt.xticks([1,252],[yearago,today])
         plt.savefig(results_dir + ticker.ticker + '_detailed.svg')
         plt.gcf().clear()
-        return ""
